@@ -1,3 +1,4 @@
+
 package com.queuesmart.controller;
 
 import jakarta.servlet.ServletException;
@@ -28,6 +29,7 @@ public class PublicPageServlet extends HttpServlet {
             res.sendError(HttpServletResponse.SC_NOT_FOUND);
         }
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
