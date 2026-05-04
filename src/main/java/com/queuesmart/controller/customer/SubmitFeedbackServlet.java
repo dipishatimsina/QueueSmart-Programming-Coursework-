@@ -70,4 +70,5 @@ public class SubmitFeedbackServlet extends HttpServlet {
             res.sendRedirect(req.getContextPath() + "/error?code=500");
         }
     }
+
 }
