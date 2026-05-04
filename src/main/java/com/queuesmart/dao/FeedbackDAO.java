@@ -13,7 +13,7 @@ public class FeedbackDAO {
         String sql = "INSERT INTO feedback (customer_id, service_id, provider_id, rating, comments) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-             
+
             ps.setInt(1, feedback.getCustomerId());
             ps.setInt(2, feedback.getServiceId());
             ps.setInt(3, feedback.getProviderId());
@@ -26,15 +26,15 @@ public class FeedbackDAO {
     public List<Feedback> findByProvider(int providerId) throws Exception {
         List<Feedback> list = new ArrayList<>();
         String sql = "SELECT f.*, u.full_name AS customer_name, s.service_name " +
-                     "FROM feedback f " +
-                     "JOIN users u ON f.customer_id = u.id " +
-                     "JOIN services s ON f.service_id = s.id " +
-                     "WHERE f.provider_id = ? " +
-                     "ORDER BY f.created_at DESC LIMIT 50";
-                     
+                "FROM feedback f " +
+                "JOIN users u ON f.customer_id = u.id " +
+                "JOIN services s ON f.service_id = s.id " +
+                "WHERE f.provider_id = ? " +
+                "ORDER BY f.created_at DESC LIMIT 50";
+
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-             
+
             ps.setInt(1, providerId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -47,15 +47,15 @@ public class FeedbackDAO {
     public List<Feedback> findByCustomer(int customerId) throws Exception {
         List<Feedback> list = new ArrayList<>();
         String sql = "SELECT f.*, u.full_name AS customer_name, s.service_name " +
-                     "FROM feedback f " +
-                     "JOIN users u ON f.customer_id = u.id " +
-                     "JOIN services s ON f.service_id = s.id " +
-                     "WHERE f.customer_id = ? " +
-                     "ORDER BY f.created_at DESC LIMIT 50";
-                     
+                "FROM feedback f " +
+                "JOIN users u ON f.customer_id = u.id " +
+                "JOIN services s ON f.service_id = s.id " +
+                "WHERE f.customer_id = ? " +
+                "ORDER BY f.created_at DESC LIMIT 50";
+
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-             
+
             ps.setInt(1, customerId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -64,7 +64,7 @@ public class FeedbackDAO {
         }
         return list;
     }
-    
+
     public boolean hasSubmittedFeedback(int customerId, int serviceId) throws Exception {
         String sql = "SELECT 1 FROM feedback WHERE customer_id = ? AND service_id = ?";
         try (Connection conn = DBConnection.getConnection();
