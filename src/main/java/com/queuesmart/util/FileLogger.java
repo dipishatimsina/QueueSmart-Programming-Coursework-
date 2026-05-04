@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class FileLogger {
 
+
     // You can adjust the path based on server configuration, 
     // using a relative path logs it to the server's working directory or bin folder.
     private static final String LOG_FILE = "queuesmart_app.log";
