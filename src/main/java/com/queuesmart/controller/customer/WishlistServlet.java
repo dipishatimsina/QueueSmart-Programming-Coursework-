@@ -71,7 +71,7 @@ public class WishlistServlet extends HttpServlet {
             }
 
             session.setAttribute("wishlist", wishlistIds);
-            
+
             // Redirect back to where they came from, or to wishlist
             String referer = req.getHeader("Referer");
             if (referer != null && !referer.isEmpty()) {
@@ -85,3 +85,5 @@ public class WishlistServlet extends HttpServlet {
         }
     }
 }
+
+
