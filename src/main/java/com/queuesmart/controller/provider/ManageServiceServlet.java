@@ -19,6 +19,7 @@ public class ManageServiceServlet extends HttpServlet {
 
     private final ServiceDAO serviceDAO = new ServiceDAO();
 
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -41,6 +42,7 @@ public class ManageServiceServlet extends HttpServlet {
         }
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -74,6 +76,7 @@ public class ManageServiceServlet extends HttpServlet {
                 res.sendRedirect(req.getContextPath() + "/provider/services?success=deleted");
                 return;
             }
+            
 
             res.sendRedirect(req.getContextPath() + "/provider/services");
             
