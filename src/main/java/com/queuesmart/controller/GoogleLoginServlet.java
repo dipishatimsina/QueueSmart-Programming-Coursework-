@@ -16,6 +16,7 @@ import java.util.Collections;
 
 @WebServlet("/googleLogin")
 public class GoogleLoginServlet extends HttpServlet {
+    
 
     // IMPORTANT: Replace with your actual Google Client ID from Developer Console
     private static final String CLIENT_ID = "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com";
@@ -28,6 +29,7 @@ public class GoogleLoginServlet extends HttpServlet {
             GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
                     .setAudience(Collections.singletonList(CLIENT_ID))
                     .build();
+            
 
             GoogleIdToken idToken = verifier.verify(idTokenString);
             if (idToken != null) {
@@ -50,6 +52,7 @@ public class GoogleLoginServlet extends HttpServlet {
                     user.setStatus("APPROVED"); // Google verified
                     userDAO.register(user);
                     
+                    
                     // Fetch the newly created user to get the auto-increment ID
                     user = userDAO.findByEmail(email);
                     FileLogger.info("Registered new user via Google Sign-In: " + email);
@@ -61,6 +64,8 @@ public class GoogleLoginServlet extends HttpServlet {
                     return;
                 }
 
+
+                
                 // Create session
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user);
