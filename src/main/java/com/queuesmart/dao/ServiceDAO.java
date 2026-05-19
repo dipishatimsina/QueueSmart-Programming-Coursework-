@@ -1,5 +1,6 @@
 package com.queuesmart.dao;
 
+
 import com.queuesmart.model.Service;
 import com.queuesmart.util.DBConnection;
 
@@ -48,6 +49,7 @@ public class ServiceDAO {
     }
     
 
+    
     /** Returns all services for a specific provider. */
     public List<Service> findByProvider(int providerId) throws Exception {
         List<Service> list = new ArrayList<>();
