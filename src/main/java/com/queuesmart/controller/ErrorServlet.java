@@ -4,11 +4,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 
+
 import java.io.IOException;
 
 /**
  * Handles error rendering.
  */
+
 @WebServlet("/error")
 public class ErrorServlet extends HttpServlet {
 
@@ -26,3 +28,6 @@ public class ErrorServlet extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(req, res);
     }
 }
+
+
+
