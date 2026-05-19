@@ -10,6 +10,7 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
+
 @WebServlet("/customer/feedback")
 public class SubmitFeedbackServlet extends HttpServlet {
 
@@ -46,6 +47,7 @@ public class SubmitFeedbackServlet extends HttpServlet {
         }
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         int customerId = (int) req.getSession().getAttribute("userId");
