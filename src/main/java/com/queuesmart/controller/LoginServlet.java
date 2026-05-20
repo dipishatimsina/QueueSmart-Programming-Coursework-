@@ -3,6 +3,7 @@ package com.queuesmart.controller;
 import com.queuesmart.service.AuthService;
 import com.queuesmart.model.User;
 
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -47,6 +48,7 @@ public class LoginServlet extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, res);
     }
 
+    
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
@@ -118,6 +120,7 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    
     /** Redirects the user to the dashboard matching their role. */
     private void redirectToDashboard(HttpServletRequest req, HttpServletResponse res, String role)
             throws IOException {
