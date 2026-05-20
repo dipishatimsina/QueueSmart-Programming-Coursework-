@@ -35,6 +35,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
+                
         // Read form fields
         String fullName = req.getParameter("fullName");
         String email    = req.getParameter("email");
@@ -52,15 +53,15 @@ public class RegisterServlet extends HttpServlet {
             forwardWithError(req, res, "Please enter a valid email address.");
             return;
         }
-        if (!ValidationUtil.isValidPhone(phone)) {
+        if (!ValidationUtil.isValidPhone(phone)){
             forwardWithError(req, res, "Please enter a valid 10-digit phone number.");
             return;
         }
-        if (!ValidationUtil.isStrongPassword(password)) {
+        if (!ValidationUtil.isStrongPassword(password)){
             forwardWithError(req, res, "Password must be 8+ characters with uppercase, lowercase, number and special character.");
             return;
         }
-        if (!password.equals(confirmPassword)) {
+        if (!password.equals(confirmPassword)){
             forwardWithError(req, res, "Passwords do not match.");
             return;
         }

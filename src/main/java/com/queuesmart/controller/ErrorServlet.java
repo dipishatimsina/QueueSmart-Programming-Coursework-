@@ -6,12 +6,14 @@ import jakarta.servlet.http.*;
 
 import java.io.IOException;
 
+
 /**
  * Handles error rendering.
  */
 @WebServlet("/error")
 public class ErrorServlet extends HttpServlet {
 
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
