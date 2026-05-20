@@ -1,5 +1,6 @@
 package com.queuesmart.dao;
 
+
 import com.queuesmart.model.Service;
 import com.queuesmart.util.DBConnection;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * Data Access Object for Service-related database operations.
  */
 public class ServiceDAO {
+    
 
     /**
      * Creates a new service. Status is PENDING_APPROVAL until admin approves.
@@ -45,7 +47,9 @@ public class ServiceDAO {
         }
         return list;
     }
+    
 
+    
     /** Returns all services for a specific provider. */
     public List<Service> findByProvider(int providerId) throws Exception {
         List<Service> list = new ArrayList<>();
@@ -72,6 +76,7 @@ public class ServiceDAO {
         }
         return list;
     }
+    
 
     /** Finds a service by its ID. */
     public Service findById(int id) throws Exception {
@@ -85,6 +90,7 @@ public class ServiceDAO {
         }
         return null;
     }
+    
 
     /** Updates service details. */
     public boolean update(Service service) throws Exception {
@@ -102,6 +108,7 @@ public class ServiceDAO {
             return ps.executeUpdate() > 0;
         }
     }
+    
 
     /** Admin approves or deactivates a service. */
     public boolean updateStatus(int serviceId, String status) throws Exception {
